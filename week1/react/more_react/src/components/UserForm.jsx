@@ -2,10 +2,13 @@ import React, { useState } from  'react';
     
     
 const UserForm = (props) => {
+
+    //const {addNewUser}
+
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");  
-    const [age, setAge] = useState(null);
+    //const [password, setPassword] = useState("");  
+    //const [age, setAge] = useState(null);
 
     const [user, setUser] = useState({});
 
@@ -16,12 +19,15 @@ const UserForm = (props) => {
         //const newUser = { username, email, password };
         const newUser = {
             username,
-            email,
-            password
+            email
+            //password
         }
 
         setUser(newUser);
-        console.log("Welcome", newUser);
+
+        //CALLING THE FUNCTION FROM APP.JS AND PASSING THE NEW USER OBJECT WE CREATED
+        props.addNewUser(newUser);
+        //console.log("Welcome", newUser);
     };
 
     const checkLength = (aString) => {
