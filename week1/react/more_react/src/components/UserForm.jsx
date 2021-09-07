@@ -3,7 +3,7 @@ import React, { useState } from  'react';
     
 const UserForm = (props) => {
 
-    //const {addNewUser}
+    //const {addNewUser} = props;
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -27,8 +27,19 @@ const UserForm = (props) => {
 
         //CALLING THE FUNCTION FROM APP.JS AND PASSING THE NEW USER OBJECT WE CREATED
         props.addNewUser(newUser);
+        //addNewUser(newUser);
         //console.log("Welcome", newUser);
     };
+
+  /*   //ternary
+    x = 10
+    if (x > 5) {
+        return "yes"
+    } else {
+        return "no"
+    }
+
+    { x > 5 ? "yes" : "no"} */
 
     const checkLength = (aString) => {
         console.log(aString);

@@ -19,6 +19,9 @@ function App() {
     const newUsersArray = [...allUsers];
     newUsersArray.push(newUserObj);
     setAllUsers(newUsersArray);
+
+    //alt way
+    //setAllUsers([...allUsers, newUserObj]);
   }
 
   return (

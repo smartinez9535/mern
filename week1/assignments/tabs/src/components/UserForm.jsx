@@ -13,7 +13,6 @@ const UserForm = (props) => {
     const[emailError, setEmailErr] = useState("");
     const[passwordError, setPasswordErr] = useState("");
     const[confirmPasswordError, setConfirmPasswordErr] = useState("");
-    const[matchPasswordError, setMatchPasswordErr] = useState("");
     
     const checkFirstNameLength = (aString) => {
         setFirstName(aString);
@@ -60,13 +59,8 @@ const UserForm = (props) => {
         if (aString.length < 8) {
             setConfirmPasswordErr("Must be at least 8 characters")
         }
-        else if (confirmPassword !== password){
-            setMatchPasswordErr("Passwords must match")
-            setConfirmPasswordErr("");
-        }
         else{
             setConfirmPasswordErr("");
-            setMatchPasswordErr("");
         }
     }
     
@@ -104,8 +98,7 @@ const UserForm = (props) => {
                 <fieldset>
                     <label>Confirm Password: </label>
                     <input type="text" onChange={ (e) => checkConfirmPasswordLength(e.target.value)} value={confirmPassword} /><br/>
-                    { confirmPasswordError ? <span style={{color: "red"}}>Must be at least 8 characters</span> : <span>&nbsp;</span>}<br/>
-                    { matchPasswordError ? <span style={{color: "red"}}>Passwords must match</span> : <span>&nbsp;</span>}
+                    { confirmPasswordError ? <span style={{color: "red"}}>Must be at least 8 characters</span> : <span>&nbsp;</span>}
                 </fieldset>
             </div>
             <h3>Your Form Data</h3>

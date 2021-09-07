@@ -5,7 +5,6 @@ function App() {
   return (
     <div className="App">
       <h1>app.js</h1>
-      {/* <Counter/> */}
       <UserForm/>
     </div>
   );
