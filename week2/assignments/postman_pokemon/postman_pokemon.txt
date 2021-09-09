@@ -1,0 +1,9 @@
+https://pokeapi.co/api/v2/pokemon/36
+
+https://pokeapi.co/api/v2/pokemon/39
+
+https://pokeapi.co/api/v2/pokemon/150
+
+https://pokeapi.co/api/v2/pokemon/221
+
+https://pokeapi.co/api/v2/pokemon/pikachu

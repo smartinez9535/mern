@@ -13,7 +13,7 @@ function App() {
   const [planet, setPlanet] = useState({});
 
   const[category = "people", setCategory] = useState();
-  const[id, setId] = useState();
+  const[id = "0", setId] = useState();
   const history = useHistory();
 
    //axios
@@ -43,7 +43,6 @@ function App() {
   const fetchItems = (e) => {
     e.preventDefault();
 
-    
     if (category == "people"){
       axiosPerson(id);
       history.push(`/people/${id}`)
@@ -68,7 +67,7 @@ function App() {
           <option id="op2" value="planets">Planets</option>
         </select>
         <h4 style={{display: "inline-block"}}>ID: </h4>
-        <input style={{display: "inline-block"}} onChange={(e) => setId(e.target.value)} type="number" min="1"/>
+        <input style={{display: "inline-block"}} onChange={(e) => setId(e.target.value)} type="number" required/>
         <button style={{display: "inline-block"}}>Search</button>
       </form>
         
