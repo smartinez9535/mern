@@ -1,9 +1,14 @@
 const UserController = require("../controllers/user.controller");
 
-module.exports = app => {
-  app.get("/api/users/", UserController.findAllUsers);
-  app.get("/api/users/:id", UserController.findOneSingleUser);
-  app.put("/api/users/update/:id", UserController.updateExistingUser);
+module.exports = (app) => {
+  //Create convention is /api/users
   app.post("/api/users/new", UserController.createNewUser);
-  app.delete("/api/users/delete/:id", UserController.deleteAnExistingUser);
+  //Read All
+  app.get("/api/users", UserController.findAllUsers);
+  //Read One
+  app.get("/api/users/:id", UserController.findOneSingleUser);
+  //Update different http verb means completely different route, convention to do it this way
+  app.put("/api/users/:id", UserController.updateExistingUser);
+  //Delete
+  app.delete("/api/users/:id", UserController.deleteAnExistingUser);
 };
