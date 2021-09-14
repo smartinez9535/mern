@@ -296,4 +296,45 @@ function findConsecutiveSums(arr, k) {
     return result;
 }
 
-console.log(findConsecutiveSums([2,5,3,6,7,0,0,23,11], 16));
+//console.log(findConsecutiveSums([2,5,3,6,7,0,0,23,11], 16));
+
+
+// findObjectsFilter(searchFor, items)
+
+// given a 'search for' object with primitive values and a list of objects
+// return a new list of objects containing the same key value pairs as the search for
+
+// given searchFor and items
+const searchFor = {
+    firstName: "Bob",
+    age: 31
+};
+
+const items = [
+    { firstName: "Bob", lastName: "Bobbert", age: 31 },
+    { firstName: "John", lastName: "Smith", age: 25 },
+    { firstName: "Bob", lastName: "White", age: 31 },
+    { firstName: "Bob", lastName: "Smith", age: 27 },
+];
+
+// return a new list of objects containing the same key pair values
+const output = [
+    { firstName: "Bob", lastName: "Bobbert", age: 31 },
+    { firstName: "Bob", lastName: "White", age: 31 }
+];
+
+function findObjectsFilter(search, items) { 
+    const searchKeysArr = Object.keys(search);
+
+    let x = items.filter(item => {
+        for (const key of searchKeysArr){
+            if(!item.hasOwnProperty(key) || item[key] !== search[key]){
+                return false;
+            }
+        }
+        return true;
+    })
+    return x;
+}
+
+console.log(findObjectsFilter(searchFor, items))
