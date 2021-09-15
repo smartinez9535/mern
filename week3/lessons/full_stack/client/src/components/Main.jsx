@@ -23,6 +23,8 @@ const Main = (props) => {
     const deleteNote = (deleteId) => {
         console.log(deleteId);
 
+        window.confirm("Confirm deletion?"){
+
         axios.delete("https://localhost:8000/api/notes/" + deleteId)
             .then(res => {
                 console.log(res.data);
@@ -31,6 +33,7 @@ const Main = (props) => {
                 setNotes( notes.filter( note => note._id !== deleteId))
             })
             .catch(err => console.log(err))
+        }
 
     }
 
@@ -48,6 +51,9 @@ const Main = (props) => {
                                 <p>
                                     Content: {note.content}
                                 </p>
+                                <li>
+                                    {Date(note.createdAt)}
+                                </li>
                             </Link>
                             <Link to={"/notes/update/" + note._id}>Update</Link>
                             <button onClick={() => deleteNote(note._id)}>Delete</button>

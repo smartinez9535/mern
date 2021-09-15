@@ -10,7 +10,7 @@ module.exports = {
             })
             .catch(err => {
                 console.log(err)
-                res.json({message: "error", error:err})
+                res.status(400).json({message: "error", error:err})
             })
     },
     //READ ONE ----------------------------------------
@@ -18,7 +18,7 @@ module.exports = {
         //Note.findOne({_id: req.params.id})
         Note.findById(req.params.id)
             .then(note => res.json(note))
-            .catch(err => res.json(err))
+            .catch(err => res.status(400).res.json(err))
     },
     //CREATE-----------------------------------------------
     create: (req, res) => {
@@ -26,20 +26,20 @@ module.exports = {
         //Note.create({title, content})
         Note.create(req.body)
             .then(newNote => res.json(newNote))
-            .catch(err => res.json(err))
+            .catch(err => res.status(400).res.json(err))
     },
     //UPDATE------------------------------------------------
     update: (req, res) => {
         //Note.findOneAndUpdate({_id: req.params.id})
         Note.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true})
             .then(updatedNote => res.json(updatedNote))
-            .catch(err => res.json(err))
+            .catch(err => res.status(400).res.json(err))
     },
     //DELETE------------------------------------------------
     delete: (req, res) => {
         //Note.deleteOne({_id: req.params.id})
         Note.findByIdAndDelete(req.params.id)
             .then(result => res.json({result: result}))
-            .catch(err => res.json(err))
+            .catch(err => res.status(400).res.json(err))
     }
 }
