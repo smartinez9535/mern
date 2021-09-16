@@ -1,6 +1,6 @@
 //1. import mongoose
 const mongoose = require("mongoose");
-const DB = "red_belt_db";
+const DB = "sept_notes_db";
 
 //2. connect mongoose to MongoDB
 mongoose.connect("mongodb://localhost/" + DB)
