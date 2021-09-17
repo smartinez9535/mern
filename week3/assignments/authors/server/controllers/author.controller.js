@@ -4,7 +4,6 @@ module.exports.index = (request, response) => {
         message: "Hello World"
     });
 }
-    // The method below is new
 module.exports.createAuthor = (request, response) => {
     const { name } = request.body;
     Author.create({

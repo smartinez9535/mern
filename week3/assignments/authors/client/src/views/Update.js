@@ -18,9 +18,11 @@ const Update = (props) => {
             })
             .catch(err=>{
                 console.log(err.response.data);
+                console.log("ID HAS NO MATCHING AUTHOR")
                 const {errors} = err.response.data;
                 const messages = Object.keys(errors).map( error => errors[error].message);
                 setDBErrors(messages);
+                history.push("/new")
             })
     }, [id]);
     
